@@ -1,0 +1,48 @@
+https://workflowy.com/s/E17I.QGinJgMFzg
+
+
+python -m virtualenv -p python3.5 .env_gap
+source ../.env_gap/bin/activate
+
+// запуск виртуального окружения
+workon dm
+
+pip install "cookiecutter>=1.4.0"
+cookiecutter https://github.com/pydanny/cookiecutter-django
+
+pip install -r requirements/base.txt
+pip install -r requirements/local.txt
+
+in config/settings/base.py  line 113
+DATABASES =                                  {
+    # 'default': env.db('DATABASE_URL', default='postgres:///gap'),
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'database',
+    }
+}
+
+sudo ./utility/install_os_dependencies.sh install
+
+./manage.py makemigrations
+./manage.py migrate
+
+sudo ./utility/install_os_dependencies.sh install
+./manage.py startapp prints
+
+pip install django-treebeard
+
+удаление миграции в БД
+./manage.py migrate audience zero
+
+запуск сервера
+./manage.py runserver
+
+создание супер пользователя
+./manage.py createsuperuser
+
+./manage.py startapp delivery_letter
+
+залить фиксированые данные
+./manage.py loaddata delivery_types.json
+
