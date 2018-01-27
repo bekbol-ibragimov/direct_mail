@@ -8,5 +8,5 @@ urlpatterns = [
         view=views.TypeListView.as_view(),
         name='type-list'
     ),
-    #url(r'^delivery/$', view=views.LatterFormView.as_view(), name='delivery'),
+    url(r'^delivery/$', view=views.LetterFormView.as_view(), name='delivery'),
 ]

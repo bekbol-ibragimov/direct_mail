@@ -11,4 +11,4 @@ class DeliveryType(models.Model):
 
 
 class Letter(models.Model):
-    file = models.FileField()
+    file = models.FileField(null=True, blank=True)

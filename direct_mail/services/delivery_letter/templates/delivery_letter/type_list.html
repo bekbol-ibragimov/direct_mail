@@ -6,14 +6,14 @@
   <hr>
   <h2>Выберите тип рассылки</h2>
 
-  {% for deliry_type in delivery_type_list %}
+  {% for delivery_type in delivery_type_list %}
     <a href="/">
-    <a href={% url "delivery_letter:type-list" %}>
+    <a href={% url "delivery_letter:delivery" %}>
       <div class="row1">
         <p>{{ delivery_type.name }}</p>
       </div>
     </a>
-    <p>{{ deliry_type.description }}, {% trans "price" %}:{{ deliry_type.price }}</p>
+    <p>{{ delivery_type.description }}, {% trans "price" %}:{{ delivery_type.price }}</p>
   {% endfor %}
 
 {% endblock %}

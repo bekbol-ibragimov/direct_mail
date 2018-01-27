@@ -14,4 +14,17 @@ class TypeListView(TemplateView):
 
 class LetterFormView(FormView):
     template_name = 'delivery_letter/delivery.html'
-    from_class = LetterForm
+    form_class = LetterForm
+
+    def post(self, request, *args,**kwargs):
+        """
+            вызывается при отправке формы, если в шаблоне (HTML) мы
+            указали, что method=post
+        """
+        return  super().post(request, *args, **kwargs)
+
+    def form_valid(self, form):
+        return super().form_valid(form)
+
+    def form_invalid(self, form):
+        return super().form_valid(form)
