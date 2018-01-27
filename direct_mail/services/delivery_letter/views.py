@@ -1,7 +1,7 @@
-from django.shortcuts import render
+from django.views.generic import TemplateView, FormView
 
-from django.views.generic import TemplateView
 from .models import DeliveryType
+from .forms import LetterForm
 
 
 class TypeListView(TemplateView):
@@ -12,4 +12,6 @@ class TypeListView(TemplateView):
         return super().get_context_data(**kwargs)
 
 
-
+class LetterFormView(FormView):
+    template_name = 'delivery_letter/delivery.html'
+    from_class = LetterForm
