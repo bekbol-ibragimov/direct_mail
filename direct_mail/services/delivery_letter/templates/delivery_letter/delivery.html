@@ -4,5 +4,8 @@
 {% block content %}
   <hr>
   <h2>Выберите</h2>
-  <form action="" method="">{%  %}</form>
+  <form action="" method="">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit"/>
+  </form>
 {% endblock %}

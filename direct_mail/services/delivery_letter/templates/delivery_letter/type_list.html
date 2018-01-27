@@ -8,6 +8,7 @@
 
   {% for deliry_type in delivery_type_list %}
     <a href="/">
+    <a href={% url "delivery_letter:type-list" %}>
       <div class="row1">
         <p>{{ delivery_type.name }}</p>
       </div>
