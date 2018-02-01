@@ -15,6 +15,7 @@ class TypeListView(TemplateView):
 class LetterFormView(FormView):
     template_name = 'delivery_letter/delivery.html'
     form_class = LetterForm
+    success_url = '/'
 
     def post(self, request, *args,**kwargs):
         """
@@ -24,6 +25,7 @@ class LetterFormView(FormView):
         return  super().post(request, *args, **kwargs)
 
     def form_valid(self, form):
+        form.save()
         return super().form_valid(form)
 
     def form_invalid(self, form):
